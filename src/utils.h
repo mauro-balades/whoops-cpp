@@ -8,6 +8,16 @@
 #define WHOOPS_DEFAULT_VISIBILITY __attribute__((visibility("hidden")))
 #endif
 
+#ifdef __linux__
+#define WHOOPS_LINUX
+#elif defined(__APPLE__)
+#define WHOOPS_MACOS
+#elif defined(_WIN32)
+#define WHOOPS_WINDOWS
+#else
+#error "Unsupported platform for whoops"
+#endif
+
 namespace whoops {
 
 }  // namespace whoops
